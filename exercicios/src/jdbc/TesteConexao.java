@@ -17,5 +17,7 @@ public class TesteConexao {
 		
 		System.out.println("Conexão efetuada com sucesso!");
 		conexao.close();
+		
+		
 	}
 }
