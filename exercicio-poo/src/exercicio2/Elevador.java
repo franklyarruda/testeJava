@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Elevador {
 
-
 	private double CapElevador;
 	private int QtPessoas;
 	int qtdMaxPessoas = 8;
@@ -13,27 +12,36 @@ public class Elevador {
 	double ppessoa;
 
 	public void inicializa() {
-		Scanner entrada = new Scanner(System.in);
-		for (int i = 1; i < 3; i++) {
-			System.out.println(" entra ou sai ");
-			String decisao = entrada.next();
-			if (decisao == "entra") {
-				
-				System.out.println("Qual peso da pessoa ");
-				ppessoa = entrada.nextDouble();
-				
-			}
-		}
+		
 		CapElevador = 0;
 		QtPessoas = 0;
 		qtdMaxElevador = 500;
 		qtdMaxPessoas = 8;
+		
+		Scanner entrada = new Scanner(System.in);
+		for (int i = 1; i < 100; i++) {
+			System.out.println(" entra ou sai ou fim");
+			String decisao = entrada.nextLine();
+			if (decisao.equals("entra")) {
+				entra();
+
+			}else if (decisao.equals("sai")) {
+				sai();
+			}
+			else {
+				if (decisao.equals("fim")) {
+					break;
+				}
+			}
+			
+		}
+		entrada.close();
 	}
 
 	public void entra() {
 		if (CapElevador < qtdMaxElevador && QtPessoas < qtdMaxPessoas) {
-			QtPessoas += npessoa;
-			CapElevador = CapElevador + ppessoa;
+			QtPessoas++;
+			CapElevador = CapElevador + 80;
 			System.out.println("pessoas no elevador " + QtPessoas);
 			System.out.println("Capacidade do elevador " + CapElevador);
 		} else {
@@ -42,9 +50,9 @@ public class Elevador {
 	}
 
 	public void sai() {
-		if (QtPessoas >= 1) {
-			QtPessoas -= npessoa;
-			CapElevador = CapElevador - ppessoa;
+		if (QtPessoas > 0) {
+			QtPessoas--;
+			CapElevador = CapElevador - 80;
 			System.out.println("pessoas no elevador " + QtPessoas);
 			System.out.println("Capacidade do elevador " + CapElevador);
 		} else {
@@ -59,4 +67,5 @@ public class Elevador {
 		// }
 
 	}
+
 }
